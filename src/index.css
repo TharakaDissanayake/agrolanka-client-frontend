@@ -1,4 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,900;1,700&display=swap');
+*{
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+@keyframes spin01{
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform: rotate(360deg);
+  }
+}
+@keyframes zoomOutIn01{
+  0%,100%{
+      transform: scale(1);
+  }
+  50%{
+      transform: scale(0.9);
+  }
+}
+.btn-1{
+  background-color: var(--main-color);
+  color: var(--white-900);
+}
+.btn-1:hover{
+  background-color: transparent;
+  border-color: var(--main-color);
+  color: var(--main-color);
+}
+
+:root{
+  --main-color:#24caac;
+  --color-1:#eaa023;
+  --color-2:#e91e63;
+  --color-3:#800080;
+  --dark-800:#24292d;
+  --dark-700:#2f363e;
+  --white-900:#ffffff;
+  --white-800:rgba(255,255,255,0.8);
+  --shadow:0 0 15px rgba(0,0,0,0.2);
+  scroll-behavior: smooth;
+}
+::before,
+::after{
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+
+}
+a{
+    text-decoration:none;
+}
+.h-100{
+  min-height: 100vh;
+}
+img{
+    vertical-align: middle;
+    max-width: 100%;
+}
+.container{
+    max-width: 1170px;
+  
+    margin: auto;
+}
+.justify-content-between{
+  justify-content: space-between
+}
+.align-items-center{
+  align-items: center;
+}
+.align-content-center{
+  align-content: center;
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+ 
+}
+p{
+  font-size: 16px;
+  color: var(--white-800);
+}
 body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 300;
+  overflow-x: hidden;
+width: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +104,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+@media(max-width:575px){
+  
 }

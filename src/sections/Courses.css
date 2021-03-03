@@ -1,0 +1,10 @@
+.courses-section{
+     background-color: var(--dark-800);
+     padding-bottom: 15px;
+ 
+     
+}
+.courses-row{
+     align-items: center;
+     justify-content: center;
+}

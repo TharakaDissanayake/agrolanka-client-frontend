@@ -1,0 +1,27 @@
+.contact-section{
+    background-color: var(--dark-800);
+
+
+    
+}
+.contact-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contact-img img{
+    max-width: 420px;
+    width: 100%;
+    animation: zoomOutIn01 7s linear infinite;
+}
+.contact-form-section,.contact-img{
+    width:50%;
+    padding:0 15px;
+}
+@media(max-width:991px){
+    .contact-img,.contact-form-section{
+        width: calc(100% - 30px);
+        margin: 25px 40px;
+      
+    }
+}

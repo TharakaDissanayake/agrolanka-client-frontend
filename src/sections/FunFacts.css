@@ -1,0 +1,32 @@
+.fun-facts-section{
+    background-color: var(--dark-800);
+
+}
+.fun-facts-img{
+    display: flex;
+    justify-content: center;
+}
+.fun-facts-img img{
+    max-width: 420px;
+    margin-top: -35px;
+    padding:20px;
+    width:100%;
+    animation:zoomOutIn01 7s linear infinite;
+}
+ .fun-facts-img,.fun-facts-items{
+     width: 50%;
+ }
+ @media(max-width:991px){
+    .fun-facts-img,.fun-facts-items{
+        width: 100%;
+        padding:40px;
+    }
+}
+@media(max-width:575px){
+    .courses-item{
+        max-width:250px;
+        width: calc(100% - 30px);
+        margin-left:50px;
+        margin-right:50px;
+    }
+}
