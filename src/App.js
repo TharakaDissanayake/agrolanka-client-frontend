@@ -1,23 +1,24 @@
 
 import './App.css';
 import Contact from './sections/Contact';
-import Courses from './sections/Courses';
+import Services from './sections/Services';
 import Footer from './sections/Footer';
-import FunFacts from './sections/FunFacts';
-import Header from './sections/Header';
-import Home from './sections/Home';
-import Reviews from './sections/Reviews';
-import Whyus from './sections/Whyus';
 
+import Header from './sections/Header';
+
+import Menu from './sections/Menu';
+import About from './sections/About';
+import Fade from "react-reveal/Fade";
+import Zoom from "react-reveal/Zoom";
+import Bounce from "react-reveal/Bounce";
 function App() {
   return (
     <div className="app">
       <Header />
-      <Home />
-      <Whyus />
-      <Courses />
-      <FunFacts />
-      <Reviews />
+      <Zoom duration={1500}>  <About /></Zoom>
+      <Bounce left duration={1000}> <Services /></Bounce>
+
+      <Menu />
       <Contact />
       <Footer />
     </div>

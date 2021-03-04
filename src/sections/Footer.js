@@ -8,7 +8,7 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 const style = {
-    color: '#24caac', marginRight: '20'
+    marginRight: '20'
 }
 function Footer() {
     return (

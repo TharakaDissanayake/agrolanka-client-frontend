@@ -1,27 +1,70 @@
 .contact-section{
-    background-color: var(--dark-800);
-
-
-    
+    background-color: var(--container-color);  
 }
 .contact-img{
+    position: relative;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 .contact-img img{
     max-width: 420px;
     width: 100%;
     animation: zoomOutIn01 7s linear infinite;
 }
-.contact-form-section,.contact-img{
+.contact-text-section{
+    width: 50%;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.contact-text-section h5{
+color: var(--first-color);
+width: 100%;
+margin-bottom: 20px;
+font-weight: 600;
+}
+
+.contact-text-section h3{
+    width: 100%;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.contact-text-section p{
+  font-size: 15px;
+}
+.contact-text-section .playStoreAdd{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.contact-text-section .playStoreAdd img{
+    display: inline-block;
+    max-width: 150px;
+}
+.contact-text-section,.contact-img{
     width:50%;
     padding:0 15px;
 }
 @media(max-width:991px){
-    .contact-img,.contact-form-section{
-        width: calc(100% - 30px);
-        margin: 25px 40px;
+    .contact-img,.contact-text-section{
+        width:100%;
+       
       
     }
+    .contact-img{
+        order: 2;
+    }
+    .contact-text-section{
+        order: 1;
+    }
+
 }
+

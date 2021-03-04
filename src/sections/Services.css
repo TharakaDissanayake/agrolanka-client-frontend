@@ -1,0 +1,25 @@
+.services-section{
+     background-color: var(--container-color);
+    
+ 
+     
+}
+.services-row{
+     align-items: center;
+     justify-content: space-around;
+}
+.section-title{
+     text-align: center;
+     
+
+
+}
+.section-title h5{
+     color: var(--first-color);
+     width: 100%;
+     font-weight: 600;
+}
+.section-title h3{
+     width: 100%;
+     font-weight: 500;
+}

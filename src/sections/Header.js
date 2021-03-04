@@ -6,12 +6,15 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
 function Header() {
     return (
-        <>
+        <>   <div className='circle' />
+
             <header className="header">
+
                 <div className="container">
                     <div className="row justify-content-between align-items-center">
+
                         <div className="logo">
-                            <a href="#">The webshala</a>
+                            <a href="#"><img src='./logo.jpg' /></a>
                         </div>
                         <input type="checkbox" id="nav-check" />
                         <label For="nav-check" className="nav-toggler">
@@ -22,41 +25,37 @@ function Header() {
                         <nav className="nav">
                             <ul>
                                 <li><a href="#home">HOME</a></li>
-                                <li><a href="#why-us">WHY US</a></li>
-                                <li><a href="#courses">COURSES</a></li>
-                                <li><a href="#reviews">REVIEWS</a></li>
+                                <li><a href="#about">ABOUT</a></li>
+                                <li><a href="#services">SERVICES</a></li>
+                                <li><a href="#menu">MENU</a></li>
                                 <li><a href="#contact">CONTACT US</a></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
             </header>
-            {/* <div className="header">
-                <img className="header_logo" src="./AmazonLogo.jpg" />
+            <section className="home-section" id="home">
 
-                <div className="header_search">
-                    <input className="header_searchInput" type="text" />
-                    <SearchIcon className="header_searchIcon" />
-                </div>
-                <div className="header_nav">
-                    <div className="header_option">
-                        <span className="header_optionLineOne">Hello guest</span>
-                        <span className="header_optionLineTwo">sign in</span>
-                    </div>
-                    <div className="header_option">
-                        <span className="header_optionLineOne">Returns</span>
-                        <span className="header_optionLineTwo">& orders</span>
-                    </div>
-                    <div className="header_option">
-                        <span className="header_optionLineOne">Your</span>
-                        <span className="header_optionLineTwo">prime</span>
-                    </div>
-                    <div className="header_OptionBasket">
-                        <ShoppingBasketIcon size={20} />
-                        <span className="header_optionLineTwo header_BasketCount">0</span>
+                <div className="container">
+                    <div className="row h-100 align-items-center align-content-center">
+                        <div className='content'>
+                            <div className='textBox'>
+                                <h2>Taste the Feeling</h2>
+                                <h5>Lorem Ipsum is simply dummy text </h5>
+                                <button type='submit' className='btn btn-1'>View Menu</button>
+                            </div>
+
+                        </div>
+                        <div className="home-img">
+                            <div className="home-img-inner">
+
+                                <img src="./home.png"></img>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </div> */}
+            </section>
         </>
     )
 }
