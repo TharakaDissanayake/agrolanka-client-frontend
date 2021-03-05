@@ -15,11 +15,11 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <Zoom duration={1500}>  <About /></Zoom>
-      <Bounce left duration={1000}> <Services /></Bounce>
+      <Bounce duration={2000}><About /></Bounce>
+      <Bounce right duration={2000}> <Services /></Bounce>
 
-      <Menu />
-      <Contact />
+      <Bounce left duration={2000}><Menu /></Bounce>
+      <Fade duration={2000}> <Contact /></Fade>
       <Footer />
     </div>
   );
