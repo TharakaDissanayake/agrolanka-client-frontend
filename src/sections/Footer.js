@@ -24,6 +24,7 @@ function Footer() {
                             <InstagramIcon style={style} />
                             <YouTubeIcon style={style} />
                         </div>
+
                     </div>
                     <div className='footer-item footer-quick-links'>
                         <h2>quick links</h2>
@@ -48,6 +49,11 @@ function Footer() {
                                 <input type='text' placeholder='Your Email Here' className='form-control' />
                             </div>
                             <button type='submit' className='btn btn-1'>subscribe</button>
+                            <ul className='sci'>
+                                <li><a href=''><img src='./facebook.png' /></a></li>
+                                <li><a href=''><img src='./instagram.png' /></a></li>
+                                <li><a href=''><img src='./twitter.png' /></a></li>
+                            </ul>
                         </form>
                     </div>
                 </div>
