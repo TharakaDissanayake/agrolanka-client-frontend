@@ -29,11 +29,11 @@ function Footer() {
                     <div className='footer-item footer-quick-links'>
                         <h2>quick links</h2>
                         <ul>
-                            <li><a href="#" >Courses</a></li>
-                            <li><a href="#" >Stories</a></li>
-                            <li><a href="#" >Blog</a></li>
-                            <li><a href="#" >Login</a></li>
-                            <li><a href="#" >Signup</a></li>
+                            <li><a href="#contact" >Courses</a></li>
+                            <li><a href="#contact" >Stories</a></li>
+                            <li><a href="#contact" >Blog</a></li>
+                            <li><a href="#contact" >Login</a></li>
+                            <li><a href="#contact" >Signup</a></li>
                         </ul>
                     </div>
                     <div className='footer-item footer-contact'>
@@ -50,9 +50,9 @@ function Footer() {
                             </div>
                             <button type='submit' className='btn btn-1'>subscribe</button>
                             <ul className='sci'>
-                                <li><a href=''><img src='./facebook.png' /></a></li>
-                                <li><a href=''><img src='./instagram.png' /></a></li>
-                                <li><a href=''><img src='./twitter.png' /></a></li>
+                                <li><a href='#contact'><img src='./facebook.png' alt="img"/></a></li>
+                                <li><a href='#contact'><img src='./instagram.png' alt="img"/></a></li>
+                                <li><a href='#contact'><img src='./twitter.png' alt="img"/></a></li>
                             </ul>
                         </form>
                     </div>

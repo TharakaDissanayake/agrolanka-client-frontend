@@ -1,20 +1,38 @@
-import React from 'react'
+import React, { useContext }  from 'react'
 import './Header.css';
 import SearchIcon from '@material-ui/icons/Search';
-
+import { createBrowserHistory } from "history";
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import { Link } from 'react-router-dom';
+import UserContext from "../context/UserContext";
+const history = createBrowserHistory();
 
 function Header() {
+    const { userData, setUserData } = useContext(UserContext);
+    const handleLogout = () => {
+        try {
+        //   handleMenuClose();
+    
+          setUserData({
+            token: undefined,
+            user: undefined,
+          });
+          localStorage.setItem("auth-token", "");
+        }
+        catch (err) {
+          console.log(err);
+        }
+      }
     return (
-        <>   <div className='circle' />
+        <>   
 
             <header className="header">
-
+<div className ='magic-shadow'>
                 <div className="container">
                     <div className="row justify-content-between align-items-center">
 
                         <div className="logo">
-                            <a href="#"><img src='./logo.jpg' /></a>
+                            <a href="#"><img src='./logo.png' alt="img"/></a>
                         </div>
                         <input type="checkbox" id="nav-check" />
                         <label For="nav-check" className="nav-toggler">
@@ -22,41 +40,31 @@ function Header() {
 
                             </span>
                         </label>
-                        <nav className="nav">
+                        <nav className="nav ">
                             <ul>
-                                <li><a href="#home">HOME</a></li>
-                                <li><a href="#about">ABOUT</a></li>
-                                <li><a href="#services">SERVICES</a></li>
-                                <li><a href="#menu">MENU</a></li>
+                            <a href="#"><img src='./logo.png' alt="img"/></a>
+                                <li><Link to="/">HOME</Link></li>
+                                <li><a href="/menu?search=&location=&category=&page=1&size=12">ALL ADS</a></li>
+                                <li><Link to="/postAdvertisement">POST NEW AD</Link></li>
+                                <li><a href="#menu">DIRECTORY</a></li>
                                 <li><a href="#contact">CONTACT US</a></li>
+                                {userData.user ?
+        <li onClick={handleLogout}><Link>LOGOUT</Link></li> :
+        <>
+                <li><Link to="/login">LOGIN / REGISTER</Link></li>
+                                  
+        </>
+      }
+                       
 
                             </ul>
                         </nav>
                     </div>
                 </div>
-            </header>
-            <section className="home-section" id="home">
-
-                <div className="container">
-                    <div className="row h-100 align-items-center align-content-center">
-                        <div className='content'>
-                            <div className='textBox'>
-                                <h2>Taste the Feeling</h2>
-                                <h5>Lorem Ipsum is simply dummy text </h5>
-                                <button type='submit' className='btn btn-1'>View Menu</button>
-                            </div>
-
-                        </div>
-                        <div className="home-img">
-                            <div className="home-img-inner">
-
-                                <img src="./home.png"></img>
-                            </div>
-                        </div>
-
-                    </div>
                 </div>
-            </section>
+            </header>
+           
+     
         </>
     )
 }

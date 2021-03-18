@@ -1,0 +1,138 @@
+.home-section {
+  /* background-color: var(--container-color); */
+  overflow: hidden;
+
+  background-image: url(../../images/hero.png);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  z-index: 99;
+}
+.home-section .h-100 {
+  padding: 120px 0;
+}
+
+.content {
+  position: relative;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 40;
+}
+.content .textBox {
+  position: relative;
+  max-width: 600px;
+  margin-right: 20px;
+}
+.content .textBox h2 {
+  color: var(--green-1);
+  font-size: 3em;
+  margin-bottom: 10px;
+  line-height: 1.4em;
+  font-weight: 700;
+}
+.content .textBox h2 img {
+  width: 200px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.content .textBox p {
+  color: var(--dark-800);
+}
+.content .textBox .btngroup {
+  width: 100%;
+  justify-content: space-between;
+}
+.content .textBox .btn {
+  display: inline-block;
+  margin-top: 20px;
+
+  padding: 10px 30px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+.content .textBox .btn-1 {
+  background-color: var(--first-color);
+  color: #fff;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.content .textBox .btn-1:hover {
+  background-color: transparent;
+  border-color: var(--first-color);
+  color: var(--first-color);
+}
+.content .textBox .btn-2 {
+  background-color: var(--yellow);
+  color: #fff;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.content .textBox .btn-2:hover {
+  background-color: transparent;
+  border-color: var(--yellow);
+  color: var(--yellow);
+}
+.home-img {
+  width: 50%;
+  display: flex;
+  z-index: 40;
+}
+.home-img-inner {
+  max-width: 800px;
+  margin: auto;
+  position: relative;
+}
+.home-img-inner img {
+  width: 100%;
+  animation: zoomOutIn01 7s linear infinite;
+}
+@media (max-width: 991px) {
+  .home-section {
+    background-position: 20% 100%;
+  }
+  .content,
+  .home-img {
+    width: 100%;
+  }
+
+  .content {
+    margin-top: 40px;
+  }
+  .content .textBox h2 {
+    font-size: 30px;
+  }
+  .content .textBox p {
+    font-size: 14px;
+  }
+  .home-section .h-100 {
+    padding: 70px 30px;
+  }
+
+  .home-img-inner img {
+    display: none;
+  }
+  .content .textBox h2 img {
+    width: 130px;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 575px) {
+  .home-section {
+    overflow: hidden;
+
+    background-image: url(../../images/hero.png);
+    object-fit: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    height: 500px;
+    z-index: -1;
+    background-color: var(--container-color);
+  }
+}

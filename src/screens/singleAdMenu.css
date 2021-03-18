@@ -1,0 +1,172 @@
+.card {
+  padding-bottom: 25px;
+  margin-left: 0;
+  margin-right: 0;
+}
+span {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+h6 {
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+
+  color: var(--first-color);
+}
+h5 {
+  font-weight: 600;
+}
+.ad-section {
+  background-color: var(--container-color);
+  margin-top: 80px;
+}
+.loading-section {
+  background-color: var(--container-color);
+  padding: 100px 100px 800px 100px;
+}
+#ad {
+  justify-content: space-around;
+}
+#ads {
+  margin: 0px 0 30px 0;
+}
+
+#ads .ad-details {
+  font-size: 15px;
+  color: green;
+
+  padding: 10px 10px 10px 7px;
+}
+#ads .ad-details-title {
+  color: #404040;
+
+  padding: 10px 10px 10px 0;
+}
+#ads .card-notify-badge {
+  position: absolute;
+  left: -10px;
+  top: -20px;
+  background: green;
+  text-align: center;
+  border-radius: 30px 30px 30px 30px;
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+#ads .card-notify-year {
+  position: absolute;
+
+  right: -10px;
+  top: -20px;
+  background: #ff4444;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  width: 50px;
+  height: 50px;
+  padding: 15px 0 0 0;
+}
+
+#ads .card-detail-badge {
+  background: #f2d900;
+
+  text-align: center;
+  border-radius: 30px 30px 30px 30px;
+  color: #000;
+  padding: 7px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 2px 1px 2px 1px;
+}
+
+#ads .card {
+  box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.15);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+#ads .card-image-overlay {
+  font-size: 20px;
+}
+
+#ads .card-image-overlay span {
+  display: inline-block;
+}
+#ads .img-fluid {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+  max-width: 60%;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+#ads .ad-btn {
+  text-transform: uppercase;
+  width: 150px;
+  height: 40px;
+  border-radius: 80px;
+  font-size: 16px;
+  line-height: 35px;
+  text-align: center;
+  border: 3px solid #39e600;
+  display: block;
+  text-decoration: none;
+
+  color: #000;
+  overflow: hidden;
+  position: relative;
+  background-color: #39e600;
+}
+#ads .name-btn {
+  text-transform: uppercase;
+  width: 100%;
+  max-height: 70px;
+
+  font-weight: 500;
+  line-height: 30px;
+  text-align: center;
+  border: 3px solid var(--first-color);
+  display: block;
+  text-decoration: none;
+  margin: 20px auto 10px auto;
+  color: #fff;
+  overflow: visible;
+  position: relative;
+  background-color: var(--first-color);
+}
+#ads .name-btn .ad-title {
+  text-transform: uppercase;
+
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 15px;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  color: #fff;
+}
+#ads .ad-btn:hover {
+  background-color: #2ecc71;
+  color: #1e1717;
+  border: 2px solid #2ecc71;
+  background: transparent;
+  transition: all 0.3s ease;
+  box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.15);
+}
+
+.ad-title h5 {
+  text-transform: uppercase;
+  font-size: 18px;
+}
+.card {
+  border-color: #dcdcdc !important;
+}
