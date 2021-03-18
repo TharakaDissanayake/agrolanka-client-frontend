@@ -9,6 +9,7 @@ import AdsScreen from './screens/AdsScreen';
 import SingleAddMenu from './screens/SingleAddMenu';
 import Checkout from './screens/postAd/Checkout';
 import LoginRegister from './screens/auth/LoginRegister';
+import CheckoutEdit from './screens/editPostedAd/CheckoutEdit';
 function MainScreen() {
     return (
         <UserContext.Consumer>
@@ -23,6 +24,7 @@ function MainScreen() {
         
               <Route exact path="/login" component={LoginRegister} />
               <Route exact path="/postAdvertisement" component={Checkout} />
+              <Route exact path="/edit/:id" render={(props) => { return <CheckoutEdit {...props} />; }}/>
               {/* <Route exact path="/user" render={() => (<CreateUser {...this.props} user={UserContext.userData.user}/>)}/>
               <Route exact path="/advertisements" component={AdsScreen} />
               <Route exact path="/register" component={Register} />

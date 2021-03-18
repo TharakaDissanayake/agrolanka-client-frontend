@@ -444,7 +444,8 @@ class AdsScreen extends Component {
                   <div className="col-12 mb-3">   
                    <Button
                   variant="contained"
-                  style={{backgroundColor:'#069c54',color:'wheat',marginTop:'15px'}}
+                  color="secondary"
+                  style={{backgroundColor:'#069c54',marginTop:'15px'}}
                   fullWidth
                   onClick={resetFunc}
                   endIcon={<RotateLeftIcon>Reset All Filters</RotateLeftIcon>}>
