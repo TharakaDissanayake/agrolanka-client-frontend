@@ -119,7 +119,7 @@ export default function Step3(props) {
           </Grid>
 
           <Grid item xs={12} sm={12}>
-            {previewSource && <img src={previewSource} alt="test" style={{ width: '100%' }} />}
+            {previewSource && <img src={previewSource} alt="test" style={{maxHeight:'350px',objectFit:'cover',display:'block',marginLeft:'auto',marginRight:'auto'}}/>}
           </Grid>
           <Grid item xs={6} sm={6}>
 
@@ -141,7 +141,7 @@ export default function Step3(props) {
               color="primary"
               className={classes.button}
             >
-              <Typography variant="h6" color="inherit">Next</Typography>
+              <Typography variant="h6" color="secondary">Next</Typography>
             </Button>
           </Grid>
 

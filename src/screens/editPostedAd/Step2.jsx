@@ -192,7 +192,7 @@ export default function Step2(props) {
 
 
           <Grid item xs={12}>
-            <InputLabel style={{ fontSize: 19, fontFamily: 'helvetica', color: 'green' }}>Type your advertisement description here</InputLabel>
+          <h6 style={{color:'#069c54'}}>Type your advertisement description here</h6>
             <TextField
 
               multiline
@@ -217,7 +217,7 @@ export default function Step2(props) {
 
           <Grid item xs={12}>
             <FormControl className={classes.formControl}>
-              <InputLabel style={{ fontSize: 18, fontFamily: 'helvetica', color: 'green', id: "demo-simple-select-helper-label" }}>Select District</InputLabel>
+            <h6 style={{color:'#069c54'}}>Select District</h6>
               <Select
 
                 style={{ width: 180 }}
@@ -242,7 +242,7 @@ export default function Step2(props) {
           </Grid>
           <Grid item xs={12}>
             <FormControl className={classes.formControl}>
-              <InputLabel style={{ fontSize: 18, fontFamily: 'helvetica', color: 'green', id: "demo-simple-select-helper-label" }}>Select Category</InputLabel>
+            <h6 style={{color:'#069c54'}}>Select Category</h6>
               <Select
 
                 style={{ width: 180 }}
@@ -288,7 +288,7 @@ export default function Step2(props) {
               color="primary"
               className={classes.button}
             >
-              <Typography variant="h6" color="inherit">Next</Typography>
+              <Typography variant="h6" color="secondary">Next</Typography>
             </Button>
           </Grid>
 

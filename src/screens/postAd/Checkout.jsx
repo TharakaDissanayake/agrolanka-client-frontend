@@ -138,7 +138,7 @@ export default function Checkout() {
                 <React.Fragment>
                   {activeStep === steps.length ? (
                     <div style={{ minHeight: 500 ,textAlign:'center'}}>
-                      {console.log(postAd)}
+                    
                       <h5 style={{color:'#069c54'}}>
                         Thank you !
                 </h5>

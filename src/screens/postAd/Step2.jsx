@@ -192,7 +192,7 @@ export default function Step2(props) {
 
 
           <Grid item xs={12}>
-            <h6>Type your advertisement description here</h6>
+          <h6 style={{color:'#069c54'}}>Type your advertisement description here</h6>
             <TextField
               multiline
               required
@@ -217,7 +217,7 @@ export default function Step2(props) {
 
           <Grid item xs={12}>
             <FormControl className={classes.formControl}>
-              <h6>Select District</h6>
+            <h6 style={{color:'#069c54'}}>Select District</h6>
               <Select
                 style={{ width: 180 }}
                 labelId="demo-simple-select-helper-label"
@@ -242,7 +242,7 @@ export default function Step2(props) {
           </Grid>
           <Grid item xs={12}>
             <FormControl className={classes.formControl}>
-              <h6>Select Category</h6>
+            <h6 style={{color:'#069c54'}}>Select Category</h6>
               <Select
                 style={{ width: 180 }}
                 labelId="demo-simple-select-helper-label"

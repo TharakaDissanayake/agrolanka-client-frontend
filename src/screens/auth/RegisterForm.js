@@ -241,7 +241,7 @@ function RegisterForm(props) {
     });
     return (
         <form onSubmit={formik.handleSubmit} className="sign-up-form">
-        <h5 className="title">Sign up</h5>
+        <h5 className="title">Register</h5>
         <div className="input-field">
           <i className="fas fa-user"></i>
           <input
@@ -320,7 +320,7 @@ function RegisterForm(props) {
          <p style={{color:'red'}}>{formik.errors.password}</p>
        ) : <p > </p>}
        
-        <input style={{marginTop:'5px'}} type="submit" value="Signup" className="btn btn-1" />
+        <input style={{marginTop:'5px'}} type="submit" value="Register" className="btn btn-1" />
         {error && (
                 <div>
                   <ErrorDisplay msg={error} handleError={() => setError(undefined)} />

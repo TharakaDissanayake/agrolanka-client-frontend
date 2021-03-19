@@ -199,7 +199,7 @@ export default function Step1(props) {
         
             <Grid item xs={12}>
            
-              <h6>Type your advertisement title here</h6>
+              <h6 style={{color:'#069c54'}}>Type your advertisement title here</h6>
 
               <TextField
                 autoFocus={true}
@@ -225,7 +225,7 @@ export default function Step1(props) {
               {<Typography variant="body2" color="error">{nameErr}</Typography>}
             </Grid>
             <Grid item xs={6} sm={7} md={9}>
-              <h6>Price for 1 unit</h6>
+            <h6 style={{color:'#069c54'}}>Price for 1 unit</h6>
               <TextField
                 InputProps={{
                   classes: {
@@ -250,7 +250,7 @@ export default function Step1(props) {
             </Grid>
             <Grid item xs={6} sm={5} md={3}>
               
-              <h6>Unit</h6>
+            <h6 style={{color:'#069c54'}}>Unit</h6>
               <TextField
                 InputProps={{
                   classes: {
@@ -277,7 +277,7 @@ export default function Step1(props) {
               {<Typography variant="body2" color="error">{unitErr}</Typography>}
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-              <h6>Quantity</h6>
+            <h6 style={{color:'#069c54'}}>Quantity</h6>
               <TextField
                 InputProps={{
                   classes: {
@@ -300,7 +300,7 @@ export default function Step1(props) {
             </Grid>
 
             <Grid item xs={12} sm={6}>
-              <h6>Contact No</h6>
+            <h6 style={{color:'#069c54'}}>Contact No</h6>
               <TextField
                 InputProps={{
                   classes: {
@@ -324,7 +324,7 @@ export default function Step1(props) {
 
             </Grid>
             <Grid item xs={12} sm={6}>
-              <h6>Contact No(additional)</h6>
+            <h6 style={{color:'#069c54'}}>Contact No(additional)</h6>
               <TextField
                 InputProps={{
                   classes: {

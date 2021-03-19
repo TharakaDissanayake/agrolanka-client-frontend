@@ -38,7 +38,7 @@ function LoginRegister() {
        
     
           <button className="btn transparent" id="sign-up-btn" onClick={triggerFunc}>
-            Sign up
+            Register
           </button>
           <button className="btn empty" id="sign-up-btn" onClick={()=>history.push('/')}>
           <ForwardIcon/> Back to menu

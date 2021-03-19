@@ -96,75 +96,75 @@ export default function Review(props) {
     <React.Fragment>
       <Grid container spacing={2}>
         <Grid item xs={12} >
-          <Typography variant="h5" >
+        <h5 >
             Advertisement summary
-      </Typography>
+      </h5>
         </Grid>
         <Grid item xs={12} sm={12}>
-          {postAd.image && <img src={postAd.image} alt="test" style={{ width: '100%' }} />}
+          {postAd.image && <img src={postAd.image} alt="test" style={{maxHeight:'350px',objectFit:'cover',display:'block',marginLeft:'auto',marginRight:'auto'}}/>}
         </Grid>
         <Grid item xs={12} lg={4}>
-          <Typography variant="h6" gutterBottom color="textSecondary" className={classes.title}>Advertisement Title</Typography>
+        <h6 style={{color:'#069c54'}}>Advertisement Title</h6>
         </Grid>
         <Grid item xs={12} lg={8}>
-          <Typography gutterBottom variant="h6" color="primary">{postAd.name}</Typography>
+          <h6>{postAd.name}</h6>
         </Grid>
         <Grid item xs={12} lg={4}>
-          <Typography variant="h6" gutterBottom color="textSecondary" className={classes.title}>Category</Typography>
+        <h6 style={{color:'#069c54'}}>Category</h6>
         </Grid>
         <Grid item xs={12} lg={8}>
-          <Typography gutterBottom variant="h6" color="primary">{postAd.category}</Typography>
+          <h6>{postAd.category}</h6>
         </Grid>
         <Grid item xs={12} lg={4}>
-          <Typography variant="h6" gutterBottom color="textSecondary" className={classes.title}>Location </Typography>
+        <h6 style={{color:'#069c54'}}>Location </h6>
         </Grid>
         <Grid item xs={12} lg={8}>
-          <Typography gutterBottom variant="h6" color="primary">{postAd.location}</Typography>
+          <h6>{postAd.location}</h6>
         </Grid>
         <Grid item xs={12} lg={4}>
-          <Typography variant="h6" gutterBottom color="textSecondary" className={classes.title}>Price</Typography>
+        <h6 style={{color:'#069c54'}}>Price</h6>
         </Grid>
         <Grid item xs={12} lg={8}>
-          <Typography gutterBottom variant="h6" color="primary">{postAd.price}</Typography>
+          <h6>{postAd.price}</h6>
         </Grid>
         <Grid item xs={12} lg={4}>
-          <Typography variant="h6" gutterBottom color="textSecondary" className={classes.title}>Available Quantity </Typography>
+        <h6 style={{color:'#069c54'}}>Available Quantity </h6>
         </Grid>
         <Grid item xs={12} lg={8}>
-          <Typography gutterBottom variant="h6" color="primary">{postAd.qty}</Typography>
+          <h6>{postAd.qty}</h6>
         </Grid>
         <Grid item xs={12} lg={4}>
-          <Typography variant="h6" gutterBottom color="textSecondary" className={classes.title}>Contact No </Typography>
+        <h6 style={{color:'#069c54'}}>Contact No </h6>
         </Grid>
         <Grid item xs={12} lg={8}>
-          <Typography gutterBottom variant="h6" color="primary">{postAd.tel}</Typography>
+          <h6>{postAd.tel}</h6>
           {postAd.tel2 &&
             <div>
 
-              <Typography gutterBottom variant="h6" color="primary">{postAd.tel2}</Typography>
+              <h6>{postAd.tel2}</h6>
             </div>
           }
         </Grid>
         <Grid item xs={12} lg={4}>
-          <Typography variant="h6" gutterBottom color="textSecondary" className={classes.title}>Description </Typography>
+        <h6 style={{color:'#069c54'}}>Description </h6>
         </Grid>
         <Grid item xs={12} lg={8}>
-          <Typography gutterBottom variant="h6" color="primary">{postAd.description}</Typography>
+          <h6>{postAd.description}</h6>
         </Grid>
         {postAd.province !== "Please Select Your Location" &&
 
           <Grid item container spacing={2}>
             <Grid item xs={12} lg={4}>
-              <Typography variant="h6" gutterBottom color="textSecondary" className={classes.title}>Address </Typography>
+            <h6 style={{color:'#069c54'}}>Address </h6>
             </Grid>
             <Grid item xs={12} lg={8}>
-              <Typography gutterBottom variant="h6" color="primary">{postAd.address}</Typography>
+              <h6>{postAd.address}</h6>
             </Grid>
             <Grid item xs={12} lg={4}>
-              <Typography variant="h6" gutterBottom color="textSecondary" className={classes.title}>Province </Typography>
+            <h6 style={{color:'#069c54'}}>Province </h6>
             </Grid>
             <Grid item xs={12} lg={8}>
-              <Typography gutterBottom variant="h6" color="primary">{postAd.province}</Typography>
+              <h6>{postAd.province}</h6>
             </Grid>
             <Grid item xs={12}>
               <SingleMapComponent product={postAd} {...props} />
@@ -244,7 +244,7 @@ export default function Review(props) {
             color="primary"
             className={classes.button}
           >
-            <Typography variant="h6" color="inherit">Update</Typography>
+            <Typography variant="h6" color="secondary">Update</Typography>
           </Button>
         </Grid>
       </Grid>

@@ -123,7 +123,7 @@ export default function Step4(props) {
             color="primary"
             className={classes.button}
           >
-            <Typography variant="h6" color="inherit">Next</Typography>
+            <Typography variant="h6" color="secondary">Next</Typography>
           </Button>
         </Grid>
 

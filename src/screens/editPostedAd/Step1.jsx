@@ -193,7 +193,7 @@ export default function Step1(props) {
 
 
           <Grid item xs={12}>
-            <InputLabel style={{ fontSize: 19, fontFamily: 'helvetica', color: 'green' }}>Type your advertisement title here</InputLabel>
+          <h6 style={{color:'#069c54'}}>Type your advertisement title here</h6>
             <TextField
               required
               id="name"
@@ -215,7 +215,7 @@ export default function Step1(props) {
             {<Typography variant="body2" color="error">{nameErr}</Typography>}
           </Grid>
           <Grid item xs={6} sm={7} md={8}>
-            <InputLabel style={{ fontSize: 19, fontFamily: 'helvetica', color: 'green' }}>Price for 1 unit</InputLabel>
+          <h6 style={{color:'#069c54'}}>Price for 1 unit</h6>
             <TextField
               required
               id="price"
@@ -237,7 +237,7 @@ export default function Step1(props) {
             {<Typography variant="body2" color="error">{priceErr}</Typography>}
           </Grid>
           <Grid item xs={6} sm={5} md={4}>
-            <InputLabel style={{ fontSize: 19, fontFamily: 'helvetica', color: 'green' }}>Unit</InputLabel>
+          <h6 style={{color:'#069c54'}}>Unit</h6>
             <TextField
               id="unit"
               select
@@ -263,7 +263,7 @@ export default function Step1(props) {
             {<Typography variant="body2" color="error">{unitErr}</Typography>}
           </Grid>
           <Grid item xs={12} sm={12} md={12}>
-            <InputLabel style={{ fontSize: 19, fontFamily: 'helvetica', color: 'green' }}>Quantity</InputLabel>
+          <h6 style={{color:'#069c54'}}>Quantity</h6>
             <TextField
               required
               id="quantity"
@@ -286,7 +286,7 @@ export default function Step1(props) {
           </Grid>
 
           <Grid item xs={12} sm={6}>
-            <InputLabel style={{ fontSize: 19, fontFamily: 'helvetica', color: 'green' }}>Contact No</InputLabel>
+          <h6 style={{color:'#069c54'}}>Contact No</h6>
             <TextField
               required
               id="tel"
@@ -309,7 +309,7 @@ export default function Step1(props) {
 
           </Grid>
           <Grid item xs={12} sm={6}>
-            <InputLabel style={{ fontSize: 19, fontFamily: 'helvetica', color: 'green' }}>Contact No(additional)</InputLabel>
+          <h6 style={{color:'#069c54'}}>Contact No(additional)</h6>
             <TextField
               required
               id="tel2"
@@ -341,7 +341,7 @@ export default function Step1(props) {
               color="primary"
               className={classes.button}
             >
-              <Typography variant="h6" color="inherit">Next</Typography>
+              <Typography variant="h6" color="secondary">Next</Typography>
             </Button>
           </Grid>
 

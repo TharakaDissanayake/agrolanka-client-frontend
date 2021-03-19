@@ -1,20 +1,18 @@
 .contact-section {
   background-color: var(--container-color);
+  margin-top: 50px;
 }
-.contact-img {
+.contact-map {
   position: relative;
-  width: 50%;
+  width: 70%;
   display: flex;
+  min-height: 300px;
   align-items: center;
   justify-content: center;
 }
-.contact-img img {
-  max-width: 420px;
-  width: 100%;
-  animation: zoomOutIn01 7s linear infinite;
-}
+
 .contact-text-section {
-  width: 50%;
+  width: 30%;
   position: relative;
   justify-content: center;
   text-align: center;
@@ -27,8 +25,12 @@
 .contact-text-section h5 {
   color: var(--first-color);
   width: 100%;
-  margin-bottom: 20px;
+  margin: 10px 0;
   font-weight: 600;
+}
+.contact-text-section h6 {
+  width: 100%;
+  margin-bottom: 30px;
 }
 
 .contact-text-section h3 {
@@ -39,29 +41,57 @@
 .contact-text-section p {
   font-size: 15px;
 }
-.contact-text-section .playStoreAdd {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 20px;
-}
-.contact-text-section .playStoreAdd img {
-  display: inline-block;
-  max-width: 150px;
-}
+
 .contact-text-section,
-.contact-img {
+.contact-map {
   width: 50%;
   padding: 0 15px;
 }
+.contact-text-section .input-wrap {
+  background: var(--white-800);
+  border: 1px solid var(--text-color-light);
+  display: flex;
+  padding: 0.3rem;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+.contact-text-section .input-wrap input {
+  width: 100%;
+  border: none;
+  padding: 0 1rem;
+  font-size: 1rem;
+}
+.contact-text-section .input-wrap input:focus {
+  outline: none;
+}
+.contact-text-section .input-wrap button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: var(--first-color);
+  color: var(--pure);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  outline: none;
+}
+.contact-text-section .input-wrap button:hover {
+  background: var(--secondary);
+}
 @media (max-width: 991px) {
-  .contact-img,
+  .contact-map,
   .contact-text-section {
     width: 100%;
-  }
-  .contact-img {
-    order: 2;
-  }
-  .contact-text-section {
-    order: 1;
   }
 }

@@ -47,7 +47,7 @@ function Header() {
                                 <li><a href="/menu?search=&location=&category=&page=1&size=12">ALL ADS</a></li>
                                 <li><Link to="/postAdvertisement">POST NEW AD</Link></li>
                                 <li><a href="#menu">DIRECTORY</a></li>
-                                <li><a href="#contact">CONTACT US</a></li>
+                                <li><Link to="/contact">CONTACT US</Link></li>
                                 {userData.user ?
         <li onClick={handleLogout}><Link>LOGOUT</Link></li> :
         <>

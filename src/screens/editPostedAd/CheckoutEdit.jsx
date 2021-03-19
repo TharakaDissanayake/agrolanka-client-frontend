@@ -20,6 +20,7 @@ import PostAdContext from "../../context/PostAdContext";
 import UserContext from "../../context/UserContext";
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Header from '../../sections/Header';
+import Footer from '../../sections/Footer';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -31,12 +32,14 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-      width: 800,
+      width: 1000,
       marginLeft: 'auto',
       marginRight: 'auto',
     },
   },
   paper: {
+    borderRadius:'30px',
+    boxShadow:'5px 5px 18px #888888',
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(3),
     padding: theme.spacing(2),
@@ -101,22 +104,26 @@ export default function CheckoutEdit(props) {
   }, []);
 
   return (
-    <div style={{ background: "#f2f2f2" }}>
-      {loading ? <div>
+    <div style={{ background: "rgba(255, 255, 255, 0.8)" }}>
+    {loading ? <div>
+<Header/>
+<div className='progress-section'>
 
-        <Typography variant="h5" gutterBottom>Loading...</Typography>
-        <LinearProgress />
-      </div> :
+<h5>Loading...</h5>
+<LinearProgress  />
+</div>
+      <Footer/>
+    </div>  :
         userData.user ?
           <React.Fragment>
             <Header/>
             <CssBaseline />
             <AppBar position="absolute" color="default" className={classes.appBar} />
             <main className={classes.layout}>
-              <Paper className={classes.paper}>
-                <Typography component="h1" variant="h4" align="center">
-                  Update Your Advertisement Details
-          </Typography>
+            <Paper className={classes.paper} style={{marginTop:'83px'}}>
+                <h5 style={{marginTop:'20px',color:'#069c54'}}>
+                  Post Your Advertisement
+          </h5>
                 <Stepper activeStep={activeStep} className={classes.stepper}>
                   {steps.map((label) => (
                     <Step key={label}>
@@ -126,12 +133,15 @@ export default function CheckoutEdit(props) {
                 </Stepper>
                 <React.Fragment>
                   {activeStep === steps.length ? (
-                    <div style={{ minHeight: 500 }}>
+                    <div style={{ minHeight: 500 ,textAlign:'center'}}>
 
-                      <Typography variant="h5" gutterBottom>
-                        Advertisement updated successfully
-                </Typography>
-
+<h5 style={{color:'#069c54'}}>
+                        Thank you !
+                </h5>
+                      <h6>
+                        Your advertisement updated successfully.
+                </h6>
+                <img src='./success.svg' alt='' style={{maxHeight:'350px',marginTop:'50px' ,objectFit:'cover',display:'block',marginLeft:'auto',marginRight:'auto'}}/>
                     </div>
                   ) : (
                       <React.Fragment>
@@ -158,19 +168,25 @@ export default function CheckoutEdit(props) {
               </Paper>
 
             </main>
-        
+            <Footer/>
           </React.Fragment> :
-          <div >
-            <h4 className="p-4" style={{ color: "red" }}>
-              please login first
-              </h4>
-            <Link to="/login">
-              <h6 className="p-4" style={{ color: "green" }}>
-                click here for login or signup
-                </h6>
-            </Link>
-
-          </div>
+           <div>
+           <Header/>
+           <div className='progress-section'>
+           
+             <h5  style={{ color: "red" }}>
+               please login first
+               </h5>
+             <Link to="/login">
+               <h6  style={{ color: "green" }}>
+                 click here for login or signup
+                 </h6>
+             </Link>
+ 
+           
+           </div>
+                   <Footer/>
+                 </div>
       }
 
     </div>

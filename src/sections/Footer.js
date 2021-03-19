@@ -38,13 +38,13 @@ function Footer() {
                     </div>
                     <div className='footer-item footer-contact'>
                         <h2>contact us</h2>
-                        <p><LocationOnIcon /> xyz Fllor, 12 Sector ,New delhi</p>
-                        <p><PhoneIcon /> 0712123422 </p>
-                        <p><EmailIcon /> lahiru@gmail.com </p>
+                        <p style={{color:'#24292d'}}><LocationOnIcon />Agriculture Office , Hambantota</p>
+                        <p style={{color:'#24292d'}}><PhoneIcon />(+94) 123 232 432</p>
+                        <p style={{color:'#24292d'}}><EmailIcon /> support@agrolanka.com </p>
                     </div>
                     <div className='footer-item footer-newsletter'>
                         <h2>newsletter</h2>
-                        <form>
+                        {/* <form>
                             <div className='input-group'>
                                 <input type='text' placeholder='Your Email Here' className='form-control' />
                             </div>
@@ -54,7 +54,7 @@ function Footer() {
                                 <li><a href='#contact'><img src='./instagram.png' alt="img"/></a></li>
                                 <li><a href='#contact'><img src='./twitter.png' alt="img"/></a></li>
                             </ul>
-                        </form>
+                        </form> */}
                     </div>
                 </div>
             </div>
