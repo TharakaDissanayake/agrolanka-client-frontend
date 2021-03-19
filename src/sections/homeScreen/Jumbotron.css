@@ -126,7 +126,7 @@
   .home-section {
     overflow: hidden;
 
-    background-image: url(../../images/hero.png);
+    background-image: none;
     object-fit: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;

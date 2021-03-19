@@ -236,6 +236,7 @@ class AdsScreen extends Component {
         await this.props.history.push({
           pathname: pathname,
           search: searchParams.toString(),
+          
         });
 
         await this.loadFunction();
@@ -390,7 +391,7 @@ class AdsScreen extends Component {
 
 
 
-          <div className="container" >
+          <div className="container" id="ads-top">
             <div className="row justify-content-center" >
             {this.state.loading===false && this.state.promotedAds.length >5 &&
                 <div>

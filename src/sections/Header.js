@@ -44,7 +44,7 @@ function Header() {
                             <ul>
                             <a href="#"><img src='./logo.png' alt="img"/></a>
                                 <li><Link to="/">HOME</Link></li>
-                                <li><a href="/menu?search=&location=&category=&page=1&size=12">ALL ADS</a></li>
+                                <li><a href="/menu?search=&location=&category=&page=1&size=12#ads-top">ALL ADS</a></li>
                                 <li><Link to="/postAdvertisement">POST NEW AD</Link></li>
                                 <li><a href="#menu">DIRECTORY</a></li>
                                 <li><Link to="/contact">CONTACT US</Link></li>
