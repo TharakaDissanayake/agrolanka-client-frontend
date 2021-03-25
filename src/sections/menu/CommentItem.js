@@ -75,8 +75,8 @@ function CommentItem({comment,adId}) {
                 {userData.user!==undefined && comment.email===userData.user.email && <DeleteIcon onClick={()=>deleteComment(comment.id)} style={{marginLeft:'5px',marginTop:'-10px'}}/>}
                 </div>
                 </div>
-                {userData.user && !showReplyBtn ? <span onClick={()=>setShowReplyBtn(true)} style={{textAlign:'right',paddingRight:10}}>Reply</span> :null}
-                {userData.user && showReplyBtn ? <span onClick={()=>setShowReplyBtn(false)} style={{textAlign:'right',paddingRight:10}}><ExpandLessIcon/></span> :null}
+                {userData.user && !showReplyBtn ? <span onClick={()=>setShowReplyBtn(true)} style={{textAlign:'right',paddingRight:10,cursor:'pointer'}}>Reply</span> :null}
+                {userData.user && showReplyBtn ? <span onClick={()=>setShowReplyBtn(false)} style={{textAlign:'right',paddingRight:10,cursor:'pointer'}}><ExpandLessIcon/></span> :null}
              
              {showReplyBtn && ReplyComment.length>0 && <div className="chatWindow--footer-reply"> 
    
