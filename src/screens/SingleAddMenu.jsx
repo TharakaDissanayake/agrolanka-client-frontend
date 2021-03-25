@@ -16,6 +16,7 @@ import baseUrl from "../config/api";
 import MenuCard from "../components/menu/MenuCard";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
+import Comments from "../sections/menu/Comments";
 
 class SingleAddMenu extends Component {
 
@@ -337,6 +338,10 @@ class SingleAddMenu extends Component {
                                 {this.state.product.description}
                               </span>
                             </div>
+                            <div className="col-12">
+                            <hr></hr>
+                            <Comments id={this.props.match.params.id}/>
+                            </div>
                           </div>
                         </div>
 
@@ -345,6 +350,7 @@ class SingleAddMenu extends Component {
                     </div>
 
                   </div>
+           
                   {/* ///////////////////////////////////////////////// from here it is cards */}
                   <div className="container">
                     {this.state.membersProducts.length > 1 &&
@@ -389,6 +395,7 @@ class SingleAddMenu extends Component {
          
 
             </div>}
+  
 <Footer/>
         </div>
       );

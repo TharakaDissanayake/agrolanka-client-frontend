@@ -1,5 +1,5 @@
 
-import './App.css';
+
 import MainScreen from './MainScreen';
 import React,{useState,useEffect} from 'react'
 import UserContext from './context/UserContext'

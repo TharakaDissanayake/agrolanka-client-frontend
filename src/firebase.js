@@ -1,10 +1,18 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import firebase from 'firebase';
 const firebaseConfig = {
-  apiKey: "AIzaSyBacfxVzIInxWTfYxML-PBLJM5OKJmTKDY",
-  authDomain: "clone-55280.firebaseapp.com",
-  projectId: "clone-55280",
-  storageBucket: "clone-55280.appspot.com",
-  messagingSenderId: "661907972810",
-  appId: "1:661907972810:web:cec0a80093df4ec0beca33",
-  measurementId: "G-75DQ8N1ZBD"
+  apiKey: "AIzaSyA6_gYmU9jBG8V6-RZZV3YpRVljniaHBMQ",
+  authDomain: "agrolanka-chat.firebaseapp.com",
+  projectId: "agrolanka-chat",
+  storageBucket: "agrolanka-chat.appspot.com",
+  messagingSenderId: "516555082210",
+  appId: "1:516555082210:web:d8dd3b17c6d15fa285d1bb",
+  measurementId: "G-6KC6J06MTN"
 };
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const db = firebaseApp.firestore();
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
+
+export { auth, provider };
+export default db;

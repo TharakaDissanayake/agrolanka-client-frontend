@@ -1,0 +1,42 @@
+.replyLine {
+  margin-bottom: 10px;
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+}
+.replyItem {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  max-width: 100%;
+}
+.author {
+  padding: 5px;
+}
+.author--img {
+  width: 40px;
+  height: auto;
+  padding: 5px;
+  object-fit: contain;
+}
+.replyItemContent {
+  background-color: rgb(231, 231, 231);
+  border-radius: 20px;
+  box-shadow: 0 1px 1px #ccc;
+  display: flex;
+  flex-direction: column;
+  padding: 2px 20px;
+  margin-bottom: 5px;
+}
+.replyText {
+  font-size: 14px;
+  margin: 5px 80px 5px 5px;
+}
+.replyDate {
+  font-size: 11px;
+  color: #999;
+  margin-right: 30px;
+  text-align: right;
+  height: 15px;
+  margin-top: 5px;
+}
