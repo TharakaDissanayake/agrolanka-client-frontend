@@ -17,6 +17,12 @@
   width: 130px;
   margin-top: 3px;
 }
+.header .notify-mobile {
+  visibility: hidden;
+}
+.header .notify-mobile-count {
+  visibility: hidden;
+}
 .header #nav-check {
   position: absolute;
   pointer-events: none;
@@ -74,6 +80,34 @@
   display: inline-block;
   margin-left: 30px;
 }
+.header .nav ul li .header--icon {
+  margin-right: 5px;
+  margin-top: -6px;
+  color: gray;
+  display: none;
+}
+.header .nav ul li .notification-area {
+  position: relative;
+}
+.header .nav ul li .notification-icon {
+  margin-right: -5px;
+  margin-top: -5px;
+  color: gray;
+  z-index: -1;
+}
+.header .nav ul li .notification-count {
+  margin-right: auto;
+  margin-left: 135px;
+  margin-top: -35px;
+  color: white;
+  background-color: tomato;
+  text-align: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  position: absolute;
+  z-index: 99;
+}
 .header .nav ul a img {
   display: none;
 }
@@ -92,16 +126,38 @@
 .header .nav ul li a:hover {
   color: var(--first-color);
 }
+.header .nav ul li a:hover .header--icon {
+  color: var(--first-color);
+}
 @media (max-width: 991px) {
   .header {
-    background-color: transparent;
+    background-color: var(--container-color);
     opacity: 0.97;
   }
 
   .header .nav-toggler {
-    margin-top: 20px;
+    margin-top: 13px;
     display: flex;
     margin-right: auto;
+  }
+  .header .notify-mobile {
+    margin-left: auto;
+    color: gray;
+    margin-top: 10px;
+    visibility: visible;
+  }
+  .header .notify-mobile-count {
+    margin-right: 30px;
+    margin-left: -14px;
+    visibility: visible;
+    color: white;
+    background-color: tomato;
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+
+    z-index: 99;
   }
   .header .logo img {
     width: 130px;

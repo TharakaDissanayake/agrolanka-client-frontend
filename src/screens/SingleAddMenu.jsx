@@ -16,7 +16,7 @@ import baseUrl from "../config/api";
 import MenuCard from "../components/menu/MenuCard";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
-import Comments from "../sections/menu/Comments";
+import Comments from "../components/singleAdMenu/commentsComponent/Comments";
 
 class SingleAddMenu extends Component {
 
@@ -340,7 +340,7 @@ class SingleAddMenu extends Component {
                             </div>
                             <div className="col-12">
                             <hr></hr>
-                            <Comments id={this.props.match.params.id}/>
+                            <Comments adId={this.props.match.params.id} advertisementPublisher={this.state.product.publisher._id}/>
                             </div>
                           </div>
                         </div>

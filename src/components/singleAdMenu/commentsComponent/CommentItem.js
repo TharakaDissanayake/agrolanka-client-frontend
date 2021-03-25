@@ -1,41 +1,67 @@
 import React, { useState, useEffect ,useContext} from 'react'
 import './CommentItem.css';
-import UserContext from "../../context/UserContext";
+import UserContext from "../../../context/UserContext";
 import SendIcon from '@material-ui/icons/Send';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import DeleteIcon from '@material-ui/icons/Delete';
-import db from '../../firebase';
+import db from '../../../firebase';
 import firebase from 'firebase';
 import ReplyComment from './ReplyComment';
-function CommentItem({comment,adId}) {
+function CommentItem({comment,adId,advertisementPublisher}) {
     const { userData, setUserData } = useContext(UserContext);
     const [reply, setReply] = useState('');
     const [replyList, setReplyList] = useState('');
     const [showReplyBtn,setShowReplyBtn]=useState(false);
-    // const [replyMessages,setReplyMessages]=useState([]);
-    const handleSendReply=()=>{
+
+    const handleSendReplyComment=()=>{
         db.collection('advertisements').doc(adId).collection('comments').doc(comment.id).collection('replys').add({
             reply: reply,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             user: userData.user.firstname,
-            email: userData.user.email,
+            userID: userData.user.id,
             userImage:null,})
          setReply('');
+         db.collection('advertisements').doc(adId).collection('comments').doc(comment.id).update({
+            replyCount:comment.replyCount+1
+         
+        })
+        if(userData.user.id!==advertisementPublisher){
+        db.collection('notifications').doc(advertisementPublisher).collection('notificationsList').add({
+            title:`${userData.user.firstname} reply to a comment on advertisement you published`,
+            content:reply,
+            sender: userData.user.firstname,
+            senderID:userData.user.id,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            redirectUrl:`/advertisements/${adId}`,
+            seen:false
+        })
+    }
+    if(userData.user.id!==comment.userID){
+        db.collection('notifications').doc(comment.userID).collection('notificationsList').add({
+            title:`${userData.user.firstname} reply to your comment`,
+            content:reply,
+            sender: userData.user.firstname,
+            senderID:userData.user.id,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            redirectUrl:`/advertisements/${adId}`,
+            seen:false
+        })}
+        
     }
     const handleInputKeyUp = (e) => {
         if (e.keyCode == 13) {
-            handleSendReply();
+            handleSendReplyComment();
         }
     }
     const deleteComment=(id)=>{
-        db.collection('advertisements').doc(adId)
-        .collection('comments').doc(id).delete();
+        db.collection('advertisements').doc(adId).collection('comments').doc(id).delete();
+
     }
-    const getComments=async()=>{
+    const getReplys=async()=>{
         
         await db.collection('advertisements').doc(adId)
         .collection('comments').doc(comment.id).collection('replys')
-        .orderBy('timestamp', 'asc')
+        .orderBy("timestamp", "desc")
         .onSnapshot(snapshot => (
             setReplyList(
                 snapshot.docs.map(doc => (
@@ -45,7 +71,7 @@ function CommentItem({comment,adId}) {
                         timestamp: doc.data().timestamp,
                         user: doc.data().user,
                         userImage: doc.data().userImage,
-                        email:doc.data().email
+                        userID:doc.data().userID
                     }
                  
                 ))
@@ -54,8 +80,9 @@ function CommentItem({comment,adId}) {
     }
     useEffect(() => {
 
-           getComments();
-      }, [adId])
+           getReplys();
+        //    console.log(comment)
+      }, [comment])
     
     return (
 
@@ -72,15 +99,17 @@ function CommentItem({comment,adId}) {
                
                 <div className="messageDate">
                 {new Date(comment.timestamp?.toDate()).toUTCString()}
-                {userData.user!==undefined && comment.email===userData.user.email && <DeleteIcon onClick={()=>deleteComment(comment.id)} style={{marginLeft:'5px',marginTop:'-10px'}}/>}
+                {userData.user!==undefined && comment.userID===userData.user.id && <DeleteIcon onClick={()=>deleteComment(comment.id)} style={{marginLeft:'5px',marginTop:'-10px'}}/>}
                 </div>
                 </div>
-                {userData.user && !showReplyBtn ? <span onClick={()=>setShowReplyBtn(true)} style={{textAlign:'right',paddingRight:10,cursor:'pointer'}}>Reply</span> :null}
+                {userData.user && !showReplyBtn && comment.replyCount===0 ? <span onClick={()=>setShowReplyBtn(true)} style={{textAlign:'right',paddingRight:10,cursor:'pointer'}}>Reply </span> :null}
+                {userData.user && !showReplyBtn && comment.replyCount===1 ? <span onClick={()=>setShowReplyBtn(true)} style={{textAlign:'right',paddingRight:10,cursor:'pointer'}}>1 Reply </span> :null}
+                {userData.user && !showReplyBtn && comment.replyCount>1 ? <span onClick={()=>setShowReplyBtn(true)} style={{textAlign:'right',paddingRight:10,cursor:'pointer'}}>{comment.replyCount} Replies </span> :null}
                 {userData.user && showReplyBtn ? <span onClick={()=>setShowReplyBtn(false)} style={{textAlign:'right',paddingRight:10,cursor:'pointer'}}><ExpandLessIcon/></span> :null}
              
              {showReplyBtn && ReplyComment.length>0 && <div className="chatWindow--footer-reply"> 
    
-             <ReplyComment replyList={replyList} adId={adId} commentId={comment.id}/>
+             <ReplyComment replyList={replyList} adId={adId} comment={comment}/>
         
                 </div>}
                 {showReplyBtn &&  <div className="chatWindow--footer-reply"> 

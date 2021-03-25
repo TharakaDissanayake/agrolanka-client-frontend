@@ -1,38 +1,53 @@
 import React, { useState, useEffect ,useContext} from 'react'
-import db from '../../firebase';
+import db from '../../../firebase';
 import './Comments.css';
 import firebase from 'firebase';
 import CommentItem from './CommentItem';
 import SendIcon from '@material-ui/icons/Send';
-import UserContext from "../../context/UserContext";
+import UserContext from "../../../context/UserContext";
+import baseUrl from '../../../config/api';
 
-function Comments({id}) {
+function Comments({adId,advertisementPublisher}) {
     const [text, setText] = useState('');
     const { userData, setUserData } = useContext(UserContext);
-    const [roomMessages, setRoomMessages] = useState([]);
-    const roomId  = "1";
-    const handleSendMsg = e => {
-        db.collection('advertisements').doc(id).collection('comments').add({
+    const [roomComments, setroomComments] = useState([]);
+   
+    const handleSendComment = e => {
+        db.collection('advertisements').doc(adId).collection('comments').add({
         comment: text,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         user: userData.user.firstname,
-        email:userData.user.email,
-        userImage:null,})
+        userID:userData.user.id,
+        userImage:null,
+        replyCount:0
+    })
         setText('');
+        if(userData.user.id!==advertisementPublisher){
+ 
+        db.collection('notifications').doc(advertisementPublisher).collection('notificationsList').add({
+            title:`${userData.user.firstname} commented on advertisement you published`,
+            content:text,
+            sender: userData.user.firstname,
+            senderID:userData.user.id,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            redirectUrl:`/advertisements/${adId}`,
+            seen:false
+        })}
         
     }
     const handleInputKeyUp = (e) => {
         if (e.keyCode == 13) {
-            handleSendMsg();
+            handleSendComment();
         }
     }
     const getComments=async()=>{
         
-        await db.collection('advertisements').doc(id)
+        await db.collection('advertisements').doc(adId)
         .collection('comments')
-        .orderBy('timestamp', 'asc')
+        .orderBy("timestamp", "desc")
+      
         .onSnapshot(snapshot => (
-            setRoomMessages(
+            setroomComments(
                 snapshot.docs.map(doc => (
                     {
                         id: doc.id,
@@ -40,17 +55,21 @@ function Comments({id}) {
                         timestamp: doc.data().timestamp,
                         user: doc.data().user,
                         userImage: doc.data().userImage,
-                        email:doc.data().email
+                        userID:doc.data().userID,
+                        replyCount:doc.data().replyCount
                     }
                  
                 ))
-            ))
+            )
+            )
         )
+        ////////////////////////////
+        
     }
     useEffect(() => {
 
            getComments();
-      }, [id])
+      }, [adId])
     
     return (
         <div>
@@ -72,16 +91,16 @@ function Comments({id}) {
                 {text !== '' &&  <div className="chatWindow-pos">
                
 
-                   <div className="chatWindow--btn" onClick={handleSendMsg}>
+                   <div className="chatWindow--btn" onClick={handleSendComment}>
                         <SendIcon style={{ color: '#919191' }} />
                     </div>
                 </div>}
                 </div>:<span style={{color:'green'}}>To write your own comment please login first</span>}
             </div>
     
-        {roomMessages.map(comment=>(
+        {roomComments.map(comment=>(
          
-            <CommentItem comment={comment} adId={id}/>
+            <CommentItem comment={comment} adId={adId} advertisementPublisher={advertisementPublisher}/>
          
         ))}
     </div>

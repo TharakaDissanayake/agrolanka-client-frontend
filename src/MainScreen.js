@@ -11,6 +11,7 @@ import Checkout from './screens/postAd/Checkout';
 import LoginRegister from './screens/auth/LoginRegister';
 import CheckoutEdit from './screens/editPostedAd/CheckoutEdit';
 import ContactScreen from './screens/ContactScreen';
+import NotificationScreen from './screens/NotificationScreen';
 function MainScreen() {
     return (
         <UserContext.Consumer>
@@ -22,7 +23,7 @@ function MainScreen() {
               <Route exact path="/" component={HomeScreen} />
               <Route exact path="/notFound" component={PageNotFoundScreen} />
               <Route exact path="/advertisements/:id" render={(props) => {return <SingleAddMenu {...props} />;}}/>
-        
+              <Route exact path="/notifications" component={NotificationScreen} />
               <Route exact path="/login" component={LoginRegister} />
               <Route exact path="/postAdvertisement" component={Checkout} />
               <Route exact path="/edit/:id" render={(props) => { return <CheckoutEdit {...props} />; }}/>
