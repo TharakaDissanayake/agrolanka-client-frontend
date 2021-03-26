@@ -7,7 +7,7 @@ import SendIcon from '@material-ui/icons/Send';
 import UserContext from "../../../context/UserContext";
 import baseUrl from '../../../config/api';
 
-function Comments({adId,advertisementPublisher}) {
+function Comments({adId,advertisementPublisher,adImgUrl}) {
     const [text, setText] = useState('');
     const { userData, setUserData } = useContext(UserContext);
     const [roomComments, setroomComments] = useState([]);
@@ -31,7 +31,8 @@ function Comments({adId,advertisementPublisher}) {
             senderID:userData.user.id,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             redirectUrl:`/advertisements/${adId}`,
-            seen:false
+            seen:false,
+            imgUrl:adImgUrl
         })}
         
     }
@@ -100,7 +101,7 @@ function Comments({adId,advertisementPublisher}) {
     
         {roomComments.map(comment=>(
          
-            <CommentItem comment={comment} adId={adId} advertisementPublisher={advertisementPublisher}/>
+            <CommentItem comment={comment} adId={adId} advertisementPublisher={advertisementPublisher} adImgUrl={adImgUrl}/>
          
         ))}
     </div>

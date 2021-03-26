@@ -7,7 +7,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import db from '../../../firebase';
 import firebase from 'firebase';
 import ReplyComment from './ReplyComment';
-function CommentItem({comment,adId,advertisementPublisher}) {
+function CommentItem({comment,adId,advertisementPublisher,adImgUrl}) {
     const { userData, setUserData } = useContext(UserContext);
     const [reply, setReply] = useState('');
     const [replyList, setReplyList] = useState('');
@@ -33,7 +33,8 @@ function CommentItem({comment,adId,advertisementPublisher}) {
             senderID:userData.user.id,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             redirectUrl:`/advertisements/${adId}`,
-            seen:false
+            seen:false,
+            imgUrl:adImgUrl
         })
     }
     if(userData.user.id!==comment.userID){
@@ -44,7 +45,8 @@ function CommentItem({comment,adId,advertisementPublisher}) {
             senderID:userData.user.id,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             redirectUrl:`/advertisements/${adId}`,
-            seen:false
+            seen:false,
+            imgUrl:adImgUrl
         })}
         
     }

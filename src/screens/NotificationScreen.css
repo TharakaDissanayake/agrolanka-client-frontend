@@ -1,4 +1,5 @@
 .notifications-section {
   background-color: var(--container-color);
   margin-top: 100px;
+  min-height: 100vh;
 }

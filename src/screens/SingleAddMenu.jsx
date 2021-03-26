@@ -340,7 +340,7 @@ class SingleAddMenu extends Component {
                             </div>
                             <div className="col-12">
                             <hr></hr>
-                            <Comments adId={this.props.match.params.id} advertisementPublisher={this.state.product.publisher._id}/>
+                            <Comments adId={this.props.match.params.id} advertisementPublisher={this.state.product.publisher._id} adImgUrl={this.state.product.image}/>
                             </div>
                           </div>
                         </div>

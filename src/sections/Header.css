@@ -133,6 +133,7 @@
   .header {
     background-color: var(--container-color);
     opacity: 0.97;
+    position: absolute;
   }
 
   .header .nav-toggler {
