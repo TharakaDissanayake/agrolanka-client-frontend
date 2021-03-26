@@ -241,6 +241,7 @@ function RegisterForm(props) {
     });
     return (
         <form onSubmit={formik.handleSubmit} className="sign-up-form">
+          <img className='reg-logo' src='./logo.png'/>
         <h5 className="title">Register</h5>
         <div className="input-field">
           <i className="fas fa-user"></i>

@@ -7,12 +7,13 @@
   padding: 10px 20px;
   align-items: flex-start;
   border-radius: 10px;
-  box-shadow: 2px 2px 5px #888888;
+  box-shadow: 3px 3px 5px #888888;
 }
 
 .notification-card .title {
   font-weight: 500;
   font-size: 17px;
+  color: var(--green-1);
 }
 .notification-card .content-area {
   display: flex;

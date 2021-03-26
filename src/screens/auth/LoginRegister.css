@@ -45,7 +45,10 @@ form {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
 }
-
+.reg-logo {
+  width: 300px;
+  height: auto;
+}
 form.sign-up-form {
   opacity: 0;
   z-index: 1;
@@ -253,6 +256,10 @@ form .btn-1:hover {
 }
 
 @media (max-width: 870px) {
+  .reg-logo {
+    width: 180px;
+    height: auto;
+  }
   .container-auth {
     min-height: 800px;
     height: 100vh;
@@ -361,6 +368,9 @@ form .btn-1:hover {
   } */
 }
 @media (max-width: 570px) {
+  .reg-logo {
+    display: none;
+  }
   form {
     padding: 0 1.5rem;
   }

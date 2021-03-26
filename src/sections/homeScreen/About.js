@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 import './About.css';
 function About() {
@@ -13,7 +14,7 @@ function About() {
                         <h5>About us</h5>
                         <h6>AgroLanka is the most popular online agro marketplace in Sri Lanka</h6>
                         <p>You can post your advertisements on our platform totally free of charge and it will help you to get more customers to your business.</p>
-                        <button type='submit' className='btn btn-1'>Explore History</button>
+                        <Link to='/contact' type='submit' className='btn btn-1'>Explore History</Link>
                     </div>
 
                 </div>

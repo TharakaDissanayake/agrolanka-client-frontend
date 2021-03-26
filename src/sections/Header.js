@@ -73,7 +73,7 @@ function Header() {
                             <ul>
                             <a href="#"><img src='./logo.png' alt="img"/></a>
                                 <li ><Link to="/"><HomeIcon className="header--icon"/>HOME</Link></li>
-                                <li><a href="/menu?search=&location=&category=&page=1&size=12#ads-top"><BeenhereIcon className="header--icon"/>ALL ADS</a></li>
+                                <li><a href="/menu?search=&location=&category=&page=1&size=12"><BeenhereIcon className="header--icon"/>ALL ADS</a></li>
                                 <li><Link to="/postAdvertisement"><PostAddIcon className="header--icon"/>POST NEW AD</Link></li>
                           
                                 <li><Link to="/contact"><ContactMailIcon className="header--icon"/>CONTACT US</Link></li>

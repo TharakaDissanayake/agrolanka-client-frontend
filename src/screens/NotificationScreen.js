@@ -7,13 +7,14 @@ import db from '../firebase';
 import firebase from 'firebase';
 import './NotificationScreen.css';
 import { Link } from 'react-router-dom';
+import { LinearProgress } from '@material-ui/core';
 
 function NotificationScreen() {
     const { userData, setUserData } = useContext(UserContext);
     const [notificationsList,setNotificationsList]=useState([]);
-
+    const [loading,setLoading]=useState(true);
     const getNotifications=async()=>{
-        
+        setLoading(true);
         await db.collection('notifications').doc(userData.user.id)
         .collection('notificationsList')
         .orderBy("timestamp", "desc")
@@ -37,16 +38,31 @@ function NotificationScreen() {
                 ))
             )
             )
-        )}
+        )
+        setLoading(false)
+    }
 
         useEffect(() => {
             if(userData.user!==undefined){
+               
             getNotifications();
-      
+     
+            }
+            else{
+                setLoading(false);
             }
         }, [userData])
      
     return (
+        loading ?<div>
+        <Header/>
+        <div className='progress-section'>
+        
+        <h5>Loading...</h5>
+        <LinearProgress  />
+        </div>
+                <Footer/>
+              </div> :
       userData.user?
             <div>
             <Header/>

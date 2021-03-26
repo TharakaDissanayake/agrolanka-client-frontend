@@ -151,7 +151,7 @@ input {
   height: 55px;
   border-radius: 55px;
   display: grid;
-
+  border: 1px solid #90ee90;
   grid-template-columns: 15% 85%;
   padding: 0 0.4rem;
   position: relative;
@@ -166,13 +166,13 @@ input {
 }
 
 .input-field input {
-  background: none;
   outline: none;
   border: none;
   line-height: 1;
   font-weight: 500;
   font-size: 0.9rem;
   color: #333;
+  background: none;
 }
 
 .input-field input::placeholder {

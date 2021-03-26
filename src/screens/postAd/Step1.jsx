@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import PostAdContext from "../../context/PostAdContext";
 import UserContext from "../../context/UserContext";
 import LinearProgress from '@material-ui/core/LinearProgress';
+import TextFieldsIcon from '@material-ui/icons/TextFields';
 const useStyles = makeStyles((theme) => ({
   buttons: {
     display: 'flex',
@@ -202,6 +203,7 @@ export default function Step1(props) {
               <h6 style={{color:'#069c54'}}>Type your advertisement title here</h6>
 
               <TextField
+              
                 autoFocus={true}
                 InputProps={{
                   classes: {
