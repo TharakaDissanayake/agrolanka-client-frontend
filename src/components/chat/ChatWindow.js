@@ -39,22 +39,54 @@ function ChatWindow({ user, data, setFullChatScreen, fullChatScreen }) {
                 date: now
             })
         })
-        for (let i in users) {
-            let u = await db.collection('users').doc(users[i]).get();
-            let uData = u.data();
-            if (uData.chats) {
-                let chats = [...uData.chats];
-                for (let e in chats) {
-                    if (chats[e].chatId == chatData.chatId) {
-                        chats[e].lastMessage = body;
-                        chats[e].lastMessageDate = now;
+ 
+        // for (let i in users) {
+            
+            let u1 = await db.collection('users').doc(userId).get();
+            let uData1 = u1.data();
+            if (uData1.chats) {
+                let chats1 = [...uData1.chats];
+                for (let e in chats1) {
+                    if (chats1[e].chatId == chatData.chatId) {
+                  
+                     
+                            chats1[e].lastMessage = body;
+                            chats1[e].lastMessageDate = now;
+                            chats1[e].lastMessageSeen = true;
+                            chats1[e].sender =true;
+                    
+                  
+                       
                     }
                 }
-                await db.collection('users').doc(users[i]).update({
-                    chats
+                await db.collection('users').doc(userId).update({
+                    chats:chats1
                 })
             }
-        }
+            /////////////////////////
+            let u2 = await db.collection('users').doc(chatData.with).get();
+            let uData2 = u2.data();
+            if (uData2.chats) {
+                let chats2 = [...uData2.chats];
+                for (let e in chats2) {
+                    if (chats2[e].chatId == chatData.chatId) {
+                  
+                     
+                            chats2[e].lastMessage = body;
+                            chats2[e].lastMessageDate = now;
+                            chats2[e].lastMessageSeen = false;
+                            chats2[e].sender =false;
+                    
+                  
+                       
+                    }
+                }
+                await db.collection('users').doc(chatData.with).update({
+                    chats:chats2
+                })
+            }
+            ////////////////////////
+        // }
     }
     const onChatContent=async(chatId, setMessageList, setUsers) => {
         return await db.collection('chats').doc(chatId).onSnapshot((doc) => {
@@ -73,6 +105,7 @@ function ChatWindow({ user, data, setFullChatScreen, fullChatScreen }) {
             sendMessage(data, user.id, 'text', text, users);
             setText('');
             setEmojiOpen(false);
+           
         }
     }
     const handleSendAudio = () => { }
@@ -84,6 +117,7 @@ function ChatWindow({ user, data, setFullChatScreen, fullChatScreen }) {
         }
     }
     useEffect(() => {
+      
         setMessageList([]);
         let unsubscribe =onChatContent(data.chatId, setMessageList, setUsers);
         return unsubscribe;

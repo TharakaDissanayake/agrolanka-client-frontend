@@ -4,6 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import { createBrowserHistory } from "history";
 import HomeIcon from '@material-ui/icons/Home';
 import BeenhereIcon from '@material-ui/icons/Beenhere';
+import ChatIcon from '@material-ui/icons/Chat';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -21,6 +22,8 @@ const history = createBrowserHistory();
 function Header() {
     const { userData, setUserData } = useContext(UserContext);
     const [numOfNotifications,setNumOfNotifications]=useState(0);
+    const [numOfUnseenMsg,setNumOfUnseenMsg]=useState(0);
+    const [lastMsg,setLastMsg]=useState('');
     const handleLogout = () => {
         try {
         //   handleMenuClose();
@@ -46,9 +49,33 @@ function Header() {
         }
        
       }
+      const getUnseenMsgCount=async()=>{
+        if(userData.user!==undefined)
+        {
+          ///////////////////////////////this is for state auto updating//////////////////
+          await db.collection('users').doc(userData.user.id).get().then((doc) => {
+          setLastMsg(doc.data().chats);
+       })
+         
+          let count=0;
+          await db.collection('users').doc(userData.user.id).get().then((doc) => {
+          
+            doc.data().chats?.map(chat=>
+      
+               chat.lastMessageSeen === false && chat.sender===false ?count=count+1 :count=count
+              )
+            });
+    
+            
+     setNumOfUnseenMsg(count);
+        }
+    
+ 
+      }
       useEffect(() => {
         getNotificationCount();
-      }, [userData])
+        getUnseenMsgCount();
+      }, [userData,lastMsg])
     return (
         <>   
 
@@ -69,6 +96,7 @@ function Header() {
                         </label>
                         <div style={{display:'flex'}}>
                         {userData.user && numOfNotifications>0 && <> <NotificationsIcon className="notify-mobile"/><div className="notify-mobile-count">{numOfNotifications}</div></>}
+                        {userData.user && numOfUnseenMsg>0 && <> <ChatIcon className="notify-mobile"/><div className="notify-mobile-count">{numOfUnseenMsg}</div></>}
                         </div>
                       
                         <nav className="nav ">
@@ -77,9 +105,10 @@ function Header() {
                                 <li ><Link to="/"><HomeIcon className="header--icon"/>HOME</Link></li>
                                 <li><a href="/menu?search=&location=&category=&page=1&size=12"><BeenhereIcon className="header--icon"/>ALL ADS</a></li>
                                 <li><Link to="/postAdvertisement"><PostAddIcon className="header--icon"/>POST NEW AD</Link></li>
-                                <li><Link to="/chat"><ContactMailIcon className="header--icon"/>CHAT</Link></li>
-                                <li><Link to="/contact"><ContactMailIcon className="header--icon"/>CONTACT US</Link></li>
+                                <li><Link to="/chat"><div className="msg-area">CHATS{userData.user && numOfUnseenMsg>0 && <><ChatIcon className="notification-icon"/><div className="msg-count">{numOfUnseenMsg}</div></>}</div></Link></li>
+                               
                                 <li><Link to="/notifications"><div className="notification-area">NOTIFICATIONS{userData.user && numOfNotifications>0 && <><NotificationsIcon className="notification-icon"/><div className="notification-count">{numOfNotifications}</div></>}</div></Link></li>
+                                <li><Link to="/contact"><ContactMailIcon className="header--icon"/>CONTACT US</Link></li>
                                 {userData.user ?
         <li onClick={handleLogout}><Link><LockIcon className="header--icon"/>LOGOUT</Link></li> :
         <>

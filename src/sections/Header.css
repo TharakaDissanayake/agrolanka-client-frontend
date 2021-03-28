@@ -89,15 +89,31 @@
 .header .nav ul li .notification-area {
   position: relative;
 }
+.header .nav ul li .msg-area {
+  position: relative;
+}
 .header .nav ul li .notification-icon {
   margin-right: -5px;
   margin-top: -5px;
   color: gray;
   z-index: -1;
 }
+.header .nav ul li .msg-count {
+  margin-right: auto;
+  margin-left: 65px;
+  margin-top: -35px;
+  color: white;
+  background-color: tomato;
+  text-align: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  position: absolute;
+  z-index: 99;
+}
 .header .nav ul li .notification-count {
   margin-right: auto;
-  margin-left: 135px;
+  margin-left: 130px;
   margin-top: -35px;
   color: white;
   background-color: tomato;
@@ -159,6 +175,12 @@
     border-radius: 12px;
 
     z-index: 99;
+  }
+  .header .nav ul li .msg-count {
+    margin-left: 105px;
+  }
+  .header .nav ul li .notification-count {
+    margin-left: 137px;
   }
   .header .logo img {
     width: 130px;

@@ -19,6 +19,7 @@ import Header from '../sections/Header';
 import Footer from '../sections/Footer';
 import { useParams } from "react-router-dom";
 function ChatScreen() {
+  let now = new Date();
   const { userChatID } = useParams();
     const { userData, setUserData } = useContext(UserContext);
   const [fullChatScreen, setFullChatScreen] = useState(false);
@@ -27,7 +28,25 @@ function ChatScreen() {
   const [userFromSingleAdMenu, setUserFromSingleAdMenu] = useState(null);
   const [showNewChat, setShowNewChat] = useState(false);
   
-////////////////////////////from single ad menu
+////////////////////////////By selecting user from single ad menu////////////////////////
+const loadFunc1=async()=>{
+  if(userChatID){
+   const userObj=await getContactDetails(userChatID);
+
+    if(userObj!=null)
+    {
+      const result2 =await getExistsUser(userData.user,userObj);
+    console.log(result2);
+      if (result2 !== true) {
+        console.log('hello')
+        await addNewChatDatabase(userData.user,userObj);
+      }
+      await addActiveChat(userData.user,userObj);
+   
+    }
+
+  }
+}
 const getContactDetails= async (userId) => {
 let userObj=null;
 return db.collection('users').doc(userId).get().then((doc) => {
@@ -47,21 +66,25 @@ return db.collection('users').doc(userId).get().then((doc) => {
 
 
 const getExistsUser= async (user, user2) => {
+  console.log(user.id,user2.id);
   let existingUser = false;
+  let test=false;
   let chatID = '';
+  if(user.id!==user2.id){
   return db.collection('users').doc(user.id).get().then((doc) => {
-      if (doc.exists) {
-          doc.data().chats.map(chat => {
-              if (chat.with === user2.id) {
-                  existingUser = true
-                  chatID = chat.chatId;
-              }
-          });
-      }
+    doc.data().chats?.map(chat=>
+      chat.with === user2.id  ?existingUser=true :test=true
+      );
+      
       return existingUser;
   }).catch((error) => {
-      return false;
-  });}
+      return ;
+  });
+}
+else{
+  return true;
+}
+}
 const addNewChatDatabase= async (user, user2) => {
 
   let now = new Date();
@@ -97,7 +120,7 @@ const addNewChatDatabase= async (user, user2) => {
 const addActiveChat=async(user, user2)=>{
         await db.collection('users').doc(user.id).get().then((doc) => {
           if (doc.exists) {
-              doc.data().chats.map(chat => {
+              doc.data().chats?.map(chat => {
                   if (chat.with === user2.id) {
                      setActiveChat(chat);
                     
@@ -105,15 +128,31 @@ const addActiveChat=async(user, user2)=>{
               });}})
       }
       
-///////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
   const handleNextChat = () => {
   
     setShowNewChat(!showNewChat);
   }
 
+const setMsgSeen=async(chatID,key)=>{
+  let u= await db.collection('users').doc(userData.user.id).get();
+            let uData = u.data();
+            if (uData.chats) {
+                let chats = [...uData.chats];
+                for (let e in chats) {
+                  if (chats[e].chatId == chatID) {
+
+                        chats[e].lastMessageSeen=true;
+                  }    
+                    
+                }
+                await db.collection('users').doc(userData.user.id).update({
+                    chats
+                })
+            }
+}
   const loadFunc = async () => {
-  
-    if (userData.user !== undefined) {
+
       db.collection('users').doc(userData.user.id).onSnapshot((doc) => {
             if (doc.exists) {
                 let data = doc.data();
@@ -134,39 +173,24 @@ const addActiveChat=async(user, user2)=>{
                         }
                     })
                     setChatlist(chats);
-                   console.log(chats);
+                  
                
                 }
             }
         })
 
-    }
-  }
-  const loadFunc1=async()=>{
-    if(userChatID){
-     const userObj=await getContactDetails(userChatID);
-  
-      if(userObj!=null)
-      {
-        const result2 =await getExistsUser(userData.user,userObj);
-      
-        if (result2 !== true) {
-          await addNewChatDatabase(userData.user,userObj);
-        }
-        await addActiveChat(userData.user,userObj);
-     
-      }
-
-    }
-  }
-  useEffect(() => {
- 
- loadFunc1();
-     
     
-    loadFunc();
+  }
+ 
+  useEffect(() => {
 
-  }, [])
+    if (userData.user !== undefined) {
+      loadFunc1();
+      loadFunc(); 
+     } 
+
+
+  }, [userData])
   if (userData.user !== undefined) {
 
     return (
@@ -182,6 +206,7 @@ const addActiveChat=async(user, user2)=>{
             user={userData.user}
             show={showNewChat}
             setShow={setShowNewChat}
+            addActiveChat={addActiveChat}
           />
           </div>
           <div className={!showNewChat?'sidebar-content-1-show':'sidebar-content-1-hide'}>
@@ -205,7 +230,7 @@ const addActiveChat=async(user, user2)=>{
                 key={key}
                 data={item}
                 active={activeChat.chatId === chatlist[key].chatId}
-                onClick={() => { setActiveChat(chatlist[key]); setFullChatScreen(!fullChatScreen);console.log(chatlist[key]) }}
+                onClick={() => { setActiveChat(chatlist[key]);setMsgSeen(chatlist[key].chatId,key); setFullChatScreen(!fullChatScreen);}}
               />
 
              ))}

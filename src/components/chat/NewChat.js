@@ -4,7 +4,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import db from '../../firebase';
 
 import firebase from 'firebase';
-function NewChat({ user, chatlist, show, setShow }) {
+function NewChat({ user, chatlist, show, setShow,addActiveChat }) {
     const [list, setList] = useState([])
     const handleClose = () => {
         setShow(false);
@@ -67,6 +67,7 @@ function NewChat({ user, chatlist, show, setShow }) {
         if (result !== true) {
             await addNewChatDatabase(user, user2);
         }
+        addActiveChat(user,user2);
         handleClose();
     }
     const getContactList= async (userId) => {
