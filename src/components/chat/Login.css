@@ -1,0 +1,57 @@
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color:#EDEDED;
+}
+.btn{
+    
+    padding:0.75rem 2rem;
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    -ms-border-radius:4px;
+    -o-border-radius:4px;
+    line-height:0.8;
+    font-size:1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    border:1px solid transparent;
+  }
+  
+  .btn-primary {
+    background:var(--primary);
+    color:white;
+  }
+  .btn-primary:hover{
+    background:transparent;
+    color:var(--primary); 
+    border:1px solid var(--primary);
+  }
+.chatIntro img{
+    width: 250px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.chatIntro h1{
+    font-size: 32px;
+    color: #525252;
+    font-weight: normal;
+    margin-top: 30px;
+}
+.chatIntro h2{
+    font-size: 14px;
+    color: #777;
+    font-weight: normal;
+    margin-top: 20px;
+    line-height: 20px;
+    text-align: center;
+}

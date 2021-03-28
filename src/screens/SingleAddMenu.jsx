@@ -324,7 +324,13 @@ class SingleAddMenu extends Component {
                             ) : (
                               null
                             )}
-
+ 
+                                  <div className="col-5 col-md-5 col-xl-3">
+                                    <Link to={`/chat/${this.state.product.publisher._id}`}>CHAT
+              </Link>
+                                  </div>
+                               
+                          
                           <div className="col-12">
                             <hr></hr>
 

@@ -25,15 +25,15 @@ useEffect(() => {
         <div className='content-area'>
         <img src={notification.imgUrl} alt=""/>
         <div className='text-area'>
-         <i style={{color:'gray'}}>{notification.content} sammika perera is on of the weakest </i> 
+         <i style={{color:'gray'}}>{notification.content}</i> 
          <p className='date'>{new Date(notification.timestamp?.toDate()).toUTCString()}</p>
          </div>  
          
          </div>
          <div className='options-area'>
-            <Link><ChatIcon style={{marginTop:'3px'}} className='option-icon'/></Link>
-            <Link to={notification.redirectUrl}><PageviewIcon style={{marginTop:'1px'}} className='option-icon'/></Link>
-            <Link><DeleteIcon onClick={deleteNotification} className='option-icon'/></Link>
+            <Link style={{color:'green'}}><ChatIcon style={{marginTop:'3px'}} className='option-icon'/></Link>
+            <Link style={{color:'green'}} to={notification.redirectUrl}><PageviewIcon style={{marginTop:'1px'}} className='option-icon'/></Link>
+            <Link style={{color:'green'}}><DeleteIcon onClick={deleteNotification} className='option-icon'/></Link>
          </div>
          {/* <Link to={notification.redirectUrl}>explore</Link>    
           <p>{notification.sender}</p>   

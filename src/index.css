@@ -18,6 +18,46 @@ html {
     transform: rotate(360deg);
   }
 }
+@keyframes translate01 {
+  from {
+    transform: translateX(600px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes translate02 {
+  from {
+    transform: translateY(-600px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes translate02 {
+  from {
+    transform: translateY(-600px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes translate04 {
+  from {
+    transform: translateY(1600px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes translate04 {
+  from {
+    transform: translateY(1600px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 @keyframes zoomOutIn01 {
   0%,
   100% {

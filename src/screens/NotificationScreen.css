@@ -1,5 +1,12 @@
 .notifications-section {
-  background-color: var(--container-color);
   margin-top: 100px;
   min-height: 100vh;
+}
+
+.no-notification-found {
+  text-align: center;
+  min-height: 100vh;
+  margin-top: 30vh;
+}
+.no-notification-found .image-notify {
 }

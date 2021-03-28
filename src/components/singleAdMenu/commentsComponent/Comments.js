@@ -45,7 +45,7 @@ function Comments({adId,advertisementPublisher,adImgUrl}) {
         
         await db.collection('advertisements').doc(adId)
         .collection('comments')
-        .orderBy("timestamp", "desc")
+        .orderBy("timestamp", "asc")
       
         .onSnapshot(snapshot => (
             setroomComments(

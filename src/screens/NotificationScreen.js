@@ -8,6 +8,9 @@ import firebase from 'firebase';
 import './NotificationScreen.css';
 import { Link } from 'react-router-dom';
 import { LinearProgress } from '@material-ui/core';
+import Loading from '../components/Loading';
+import PleaseLogin from '../components/PleaseLogin';
+
 
 function NotificationScreen() {
     const { userData, setUserData } = useContext(UserContext);
@@ -39,7 +42,10 @@ function NotificationScreen() {
             )
             )
         )
-        setLoading(false)
+        setTimeout(() => {
+            setLoading(false)
+        }, 2000);
+        
     }
 
         useEffect(() => {
@@ -49,50 +55,41 @@ function NotificationScreen() {
      
             }
             else{
-                setLoading(false);
+               
+                    setLoading(false)
+              
             }
         }, [userData])
      
     return (
-        loading ?<div>
-        <Header/>
-        <div className='progress-section'>
-        
-        <h5>Loading...</h5>
-        <LinearProgress  />
-        </div>
-                <Footer/>
-              </div> :
+        loading ?<Loading/> :
       userData.user?
+      notificationsList.length>0?
+    
             <div>
             <Header/>
             <div className='container'>
-               
+            
                 <div className="notifications-section">
+             
     {notificationsList.map(notification=>(<NotificationCard notification={notification} userID={userData.user.id}/>))}
     </div>
           
             </div>
-      
+    
         <Footer/>
-        </div>:
-         <div>
-         <Header/>
-         <div className='progress-section'>
-         
-           <h5  style={{ color: "red" }}>
-             please login first
-             </h5>
-           <Link to="/login">
-             <h6  style={{ color: "green" }}>
-               click here for login or signup
-               </h6>
-           </Link>
+        </div>:  <div>
+        <Header/>
+            <div className='container'>
+            <div className='no-notification-found'>
+            <img src="./img/nodata.svg" className="image-notify" style={{  width: '200px',marginRight:'auto',marginLeft:'auto'}} alt="" />
+          <span style={{fontSize:'20px',fontWeight:'600',marginTop:'30px'}}>Congratulations</span>
+          <span>You have no notifications</span>
 
-         
-         </div>
-                 <Footer/>
-               </div>
+      </div>
+      </div>
+      <Footer/></div>:
+         <PleaseLogin/>
   
     )
 }

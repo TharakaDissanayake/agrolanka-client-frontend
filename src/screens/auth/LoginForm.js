@@ -7,6 +7,9 @@ import Axios from "axios";
 import baseUrl from '../../config/api';
 import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
+import db from '../../firebase';
+
+import firebase from 'firebase';
 function LoginForm() {
     const { userData, setUserData } = useContext(UserContext);
 
@@ -34,6 +37,13 @@ function LoginForm() {
         };
   
         const loginRes = await Axios.post(baseUrl + "users/login", user);
+        //////////////////////firebase add user////////////////////////
+          await db.collection('users').doc(loginRes.data.user.id).set({
+          firstname:loginRes.data.user.firstname,
+          avatar:'https://png.pngtree.com/png-vector/20190704/ourlarge/pngtree-vector-user-young-boy-avatar-icon-png-image_1538408.jpg'
+      }, { merge: true })
+        
+        /////////////////////
         setUserData({
           token: loginRes.data.token,
           user: loginRes.data.user,

@@ -63,7 +63,7 @@ function CommentItem({comment,adId,advertisementPublisher,adImgUrl}) {
         
         await db.collection('advertisements').doc(adId)
         .collection('comments').doc(comment.id).collection('replys')
-        .orderBy("timestamp", "desc")
+        .orderBy("timestamp", "asc")
         .onSnapshot(snapshot => (
             setReplyList(
                 snapshot.docs.map(doc => (

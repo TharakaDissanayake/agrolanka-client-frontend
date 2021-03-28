@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Footer.css';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -11,10 +11,12 @@ const style = {
     marginRight: '20'
 }
 function Footer() {
+
     return (
         <div className='footer'>
             <div className='container'>
                 <div className='row'>
+  
                     <div className='footer-item footer-about'>
                         <h2>about us</h2>
                         <p>Lorem ipsum may be used as a placeholder before final copy is available.</p>

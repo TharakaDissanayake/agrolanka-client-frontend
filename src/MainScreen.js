@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import UserContext from './context/UserContext';
 import HomeScreen from './screens/HomeScreen';
 import Footer from './sections/Footer';
@@ -12,12 +12,15 @@ import LoginRegister from './screens/auth/LoginRegister';
 import CheckoutEdit from './screens/editPostedAd/CheckoutEdit';
 import ContactScreen from './screens/ContactScreen';
 import NotificationScreen from './screens/NotificationScreen';
+import ChatScreen from './screens/ChatScreen';
+
 function MainScreen() {
+
     return (
         <UserContext.Consumer>
         {(UserContext) => (
         <div>
-      
+
             <Switch>
               <Route path="/menu" component={AdsScreen} />
               <Route exact path="/" component={HomeScreen} />
@@ -28,6 +31,9 @@ function MainScreen() {
               <Route exact path="/postAdvertisement" component={Checkout} />
               <Route exact path="/edit/:id" render={(props) => { return <CheckoutEdit {...props} />; }}/>
               <Route exact path="/contact" component={ContactScreen} />
+              <Route exact path="/chat/:userChatID" component={ChatScreen} />
+              <Route exact path="/chat" component={ChatScreen} />
+
               {/* <Route exact path="/user" render={() => (<CreateUser {...this.props} user={UserContext.userData.user}/>)}/>
               <Route exact path="/advertisements" component={AdsScreen} />
               <Route exact path="/register" component={Register} />

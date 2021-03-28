@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import UserContext from "../context/UserContext";
 import db from '../firebase';
 import firebase from 'firebase';
+import PopupChat from '../components/PopupChat';
 
 
 const history = createBrowserHistory();
@@ -52,12 +53,13 @@ function Header() {
         <>   
 
             <header className="header">
+            <PopupChat userData={userData}/>
 <div className ='magic-shadow'>
                 <div className="container">
                     <div className="row justify-content-between align-items-center">
 
                         <div className="logo">
-                            <a href="#"><img src='./logo.png' alt="img"/></a>
+                            <a href="#"><img src='http://res.cloudinary.com/uwusam/image/upload/v1616764242/pvlylczd0qzbl7mnqaxi.png' alt="img"/></a>
                         </div>
                         <input type="checkbox" id="nav-check" />
                         <label For="nav-check" className="nav-toggler">
@@ -71,11 +73,11 @@ function Header() {
                       
                         <nav className="nav ">
                             <ul>
-                            <a href="#"><img src='./logo.png' alt="img"/></a>
+                         <a><img src='http://res.cloudinary.com/uwusam/image/upload/v1616764242/pvlylczd0qzbl7mnqaxi.png' /></a>
                                 <li ><Link to="/"><HomeIcon className="header--icon"/>HOME</Link></li>
                                 <li><a href="/menu?search=&location=&category=&page=1&size=12"><BeenhereIcon className="header--icon"/>ALL ADS</a></li>
                                 <li><Link to="/postAdvertisement"><PostAddIcon className="header--icon"/>POST NEW AD</Link></li>
-                          
+                                <li><Link to="/chat"><ContactMailIcon className="header--icon"/>CHAT</Link></li>
                                 <li><Link to="/contact"><ContactMailIcon className="header--icon"/>CONTACT US</Link></li>
                                 <li><Link to="/notifications"><div className="notification-area">NOTIFICATIONS{userData.user && numOfNotifications>0 && <><NotificationsIcon className="notification-icon"/><div className="notification-count">{numOfNotifications}</div></>}</div></Link></li>
                                 {userData.user ?
