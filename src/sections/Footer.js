@@ -19,7 +19,7 @@ function Footer() {
   
                     <div className='footer-item footer-about'>
                         <h2>about us</h2>
-                        <p>Lorem ipsum may be used as a placeholder before final copy is available.</p>
+                        <p>Agrolanka is an online platform for publish advertisements of agro products in Sri Lanka</p>
                         <div className='social-links'>
                             <FacebookIcon style={style} />
                             <TwitterIcon style={style} />
